@@ -1,0 +1,542 @@
+1)	What's the difference between undefined and not defined?
+
+	A variable can be declared but not defined. When we try to access it, It will result undefined.
+
+	A variable can be neither declared nor defined.
+	
+2)	What is the drawback of having private methods in a JavaScript object?
+
+	One of the drawback of creating a private method in JavaScript is that they are very memory inefficient because a new copy of the method would be created for each instance.
+	
+	var Employee = function (name, company, salary) {
+	  this.name = name || "";       
+	  this.company = company || "";
+	  this.salary = salary || 5000;
+
+	  // We can create a private method like this
+	  var increaseSalary = function () {
+		this.salary = this.salary + 1000;
+	  };
+
+	};
+	
+	Here each instance variable emp1, emp2, emp3 has own copy of increaseSalary private method. However the displayIncreasedSalary will only be added once to an object Employee.prototype.
+	
+	
+4. What is “closure” in javascript? Can you provide an example?
+
+
+	A closure is a function defined inside another function (called parent function) and has access to the variable which is declared and defined in parent function scope.
+
+	The closure has access to the variable in three scopes:
+
+		1.Variable declared in his own scope
+		2.Variable declared in parent function scope
+		3.Variable declared in the global namespace
+		
+5. Write a mul function which will work properly when invoked with following syntax.
+
+	console.log(mul(2)(3)(4)); // output : 24
+	console.log(mul(4)(3)(4)); // output : 48
+	
+	function mul (x) {
+	  return function (y) { // anonymous function
+		return function (z) { // anonymous function
+		  return x * y * z;
+		};
+	  };
+	}
+6. How to empty an array in JavaScript?
+
+	var arrayList =  ['a', 'b', 'c', 'd', 'e', 'f'];
+	
+	arrayList.length = 0;
+	
+	arrayList.splice(0, arrayList.length);
+	
+	while(arrayList.length) {
+	  arrayList.pop();
+	}
+	
+7. How to check if an object is an array or not?
+
+	Array.isArray(arrayList);
+	
+8. What will be the output of the following code?
+
+	var output = (function(x) {
+	  delete x;
+	  return x;
+	})(0);
+
+	console.log(output);
+	
+	
+	delete operator is used to delete a property from an object. Here x is not an object it's local variable. delete operator doesn't affect local variables.
+	
+9. What will be the output of the following code?
+
+	var x = { foo : 1};
+	var output = (function() {
+	  delete x.foo;
+	  return x.foo;
+	})();
+
+	console.log(output);
+	
+	undefined.
+	
+11. What will be the output of the following code?
+
+	var Employee = {
+	  company: 'xyz'
+	}
+	var emp1 = Object.create(Employee);
+	delete emp1.company
+	console.log(emp1.company);
+	
+	xyz. delete operator doesn't delete prototype property.
+	
+14. What will be the output of the following code?
+
+	var bar = true;
+	console.log(bar + 0);   
+	console.log(bar + "xyz");  
+	console.log(bar + true);  
+	console.log(bar + false);
+	
+	
+    Number + Number 	->	 Addition
+    Boolean + Number 	->	 Addition
+    Number + String 	->	 Concatenation
+    String + Boolean 	->	 Concatenation
+    String + String 	->	 Concatenation
+	
+15. What will be the output of the following code?
+
+	var z = 1, y = z = typeof y;
+	console.log(y);
+	
+	undefined
+	
+16. What will be the output of the following code?
+
+	// NFE (Named Function Expression)
+	var foo = function bar() { return 12; };
+	typeof bar();
+	
+	The output will be Reference Error.
+	
+	var bar = function() { return 12; };
+	typeof bar();
+	
+17. What is the difference between declaring a function in the formats listed below?
+
+	var foo = function() {
+	  // Some code
+	};
+
+	function bar () {
+	  // Some code
+	};
+	
+	The main difference is function foo is defined at run-time and is called function expression, whereas function bar is defined at parse time and is called function statement. 
+	
+	// Run-Time function declaration
+	<script>
+	  foo(); // Call foo function here, It will give an error
+	  var foo = function() {
+		console.log("Hi I am inside Foo");
+	  };
+	</script>
+	
+	// Parse-Time function declaration
+	<script>
+	bar(); // Call bar function here, It will not give an Error
+	function bar() {
+	  console.log("Hi I am inside Foo");
+	};
+	</script>
+	
+18. what is function hoisting in JavaScript?
+	
+	var foo = function foo() {
+		 return 12;
+	};
+	
+	In JavaScript var-declared variables and functions are hoisted. Let's take function hoisting first. Basically, the JavaScript interpreter looks ahead to find all the variable declaration and hoists them to the top of the function where it's declared. 
+	
+	var foo = undefined;
+	foo(); // Here foo is undefined
+	foo = function foo() {
+	  // Some code stuff
+	}
+	
+19. What will be the output of the following code?
+
+	var salary = "1000$";
+
+	(function () {
+	  console.log("Original salary was " + salary);
+
+	  var salary = "5000$";
+
+	  console.log("My New Salary " + salary);
+	})();
+	
+	The code above will output: undefined, 5000$
+	
+20. What’s the difference between typeof and instanceof?
+	
+	typeof is an operator that returns a string with the type of whatever you pass.	
+	
+	The typeof operator checks if a value belongs to one of the seven basic types: number, string, boolean, object, function, undefined or Symbol.
+	
+	instanceof is much more intelligent: it works on the level of prototypes. In particular, it tests to see if the right operand appears anywhere in the prototype chain of the left. instanceof doesn’t work with primitive types. 
+	
+21. Calculate the length of the associative array
+
+	var counterArray = {
+	  A : 3,
+	  B : 4
+	};
+	counterArray["C"] = 1;
+	
+	Object.keys(counterArray).length;
+	
+22. Difference between Function, Method and Constructor calls in JavaScript.
+
+	Methods in JavaScript are nothing more than object properties that are functions.
+	
+	The third use of functions is as constructors.
+	
+	The primary role of the constructor function is to initialize the object.
+	
+24. What are Service Workers and when can you use them?
+
+	It’s a technology that allows your web application to use cached resources first, and provide default experience offline, before getting more data from the network later. This principle is commonly known as Offline First.
+
+	Service Workers actively use promises. A Service Worker has to be installed,activated and then it can react on fetch, push and sync events.
+	
+25. What is the difference between a method and a function in javascript?
+
+	In JS, that difference is quite subtle. 
+	
+	A function is a piece of code that is called by name and function itself not associated with any object and not defined inside any object. 
+	
+	A method is a piece of code that is called by its name and that is associated with the object. Methods are functions.
+	
+27. Describe Singleton Pattern In JavaScript
+
+	The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. 
+	
+	In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
+	
+	There are two important points in the traditional definition of Singleton pattern:
+
+    -->There should be only one instance allowed for a class and
+    -->We should allow global point of access to that single instance
+
+28. What are the ways of creating objects in JavaScript ?
+
+	Method 1: Function based
+	
+	  function Employee(fName, lName, age, salary){
+		this.firstName = fName;
+		this.lastName = lName;
+		this.age = age;
+		this.salary = salary;
+	  }
+	
+	Method 2: Object Literal
+	
+		var employee = {
+			name : 'RK',
+			salary : 100000,
+			getName : function(){
+				return this.name;
+			}
+		}
+	
+	Method 3: From Object using new keyword
+	
+		var employee = new Object(); // Created employee object using new keywords and Object()
+		employee.name = 'RK';
+		employee.getName = function(){
+			return this.name;
+		}
+		
+	Method 4:** Using Object.create
+	
+		Object.create(obj) will create a new object and set the obj as its prototype. It’s a modern way to create objects that inherit properties from other objects. Object.create function doesn’t run the constructor. You can use Object.create(null) when you don’t want your object to inherit the properties of Object.
+		
+29. Write a function called deepClone which takes an object and creates a object copy of it.
+
+	var newObject = deepClone(obj);
+	
+	function deepClone(object){
+		var newObject = {};
+		for(var key in object){
+			if(typeof object[key] === 'object'){
+			 newObject[key] = deepClone(object[key]);
+			}else{
+			 newObject[key] = object[key];
+			}
+		}
+		return newObject;
+	}
+	
+30. Best way to detect undefined object property in JavaScript.
+
+	if(typeof someProperty === 'undefined'){
+		console.log('something is undefined here');
+	}
+	
+31. Write a function called Clone which takes an object and creates a object copy of it but not copy deep property of object.
+	
+	function Clone(object){
+	  var newObject = {};
+	  for(var key in object){
+		newObject[key] = object[key];
+	  }
+	  return newObject;
+	}
+	
+32. What are promises and how they are useful?
+
+	We use promises for handling asynchronous interactions in a sequential manner. They are especially useful when we need to do an async operation and THEN do another async operation based on the results of the first one.
+	
+	The promise represents the future value. It has an internal state (pending, fulfilled and rejected) and works like a state machine.
+	
+	A promise object has then method, where you can specify what to do when the promise is fulfilled or rejected.
+	
+	You can chain then() blocks, thus avoiding the callback hell. You can handle errors in the catch() block. After a promise is set to fulfilled or rejected state, it becomes immutable.
+	
+33. How to check whether a key exist in a JavaScript object or not.
+
+	Method 1: We can use in operator on objet to check own property or inherited property.
+	
+		console.log('name' in person);
+		
+		console.log('toString' in person); // Will print true
+		
+		console.log(person.hasOwnProperty('toString')); // print false
+		console.log(person.hasOwnProperty('name')); // print true
+	
+34. What is NaN, why do we need it, and when can it break the page?
+
+	NaN stands for “not a number.” and it can break your table of numbers when it has an arithmetic operation that is not allowed. 
+	
+	NaN is not equal to any number, it’s not less or more than any number, also it's not equal to itself:
+	
+	NaN !== NaN
+	NaN < 2 // false
+	NaN > 2 // false
+	NaN === 2 // false
+	
+	To check if the current value of the variable is NaN, you have to use the isNaN function. 
+	
+35. Fix the bug using ES5 only
+
+	var arr = [10, 32, 65, 2];
+	for (var i = 0; i < arr.length; i++) {
+	  setTimeout(function() {
+		console.log('The index of this number is: ' + i);
+	  }, 3000);
+	}
+
+	For ES6, you can just replace var i with let i.
+
+	For ES5, you need to create a function scope like here:
+
+	var arr = [10, 32, 65, 2];
+	for (var i = 0; i < arr.length; i++) {
+	  setTimeout(function(j) {
+		return function () {
+		  console.log('The index of this number is: ' + j)
+		};
+	  }(i), 3000);
+	}
+	
+37. Best way to detect reference values of any type in JavaScript ?
+
+	console.log(typeof {});           // object
+	console.log(typeof []);           // object
+	console.log(typeof new Array());  // object
+	console.log(typeof null);         // object 
+	console.log(typeof new RegExp()); // object
+	console.log(typeof new Date());   // object
+	
+	//Detecting an array
+	if(value instanceof Array){
+		console.log("value is type of array");
+	}
+
+38. Describe Object-Based inheritance in JavaScript.
+
+	Object-based inheritance also called prototypal inheritance in which we one object inherit from another object without invoking a constructor function.
+	
+	The ECMAScript 5 Object.create() method is the easiest way for one object to inherit from another.
+	
+	var employee = {
+	  name: 'RK',
+	  displayName: function () {
+		console.log(this.name);
+	  }
+	};
+
+	var emp1 = Object.create(employee);
+	console.log(emp1.displayName()); 
+	
+	
+39. Describe Type-Based inheritance in JavaScript.
+
+	Type-based inheritance works with constructor function instead of object, It means we need to call constructor function of the object from which you want to inherit.
+	
+40. How we can prevent modification of object in JavaScript ?
+
+	1: Prevent extensions :
+	
+		No new properties or methods can be added to the object, but one can change the existing properties and method.
+		
+		var employee = {
+			name: "RK"
+		};
+
+		// lock the object 
+		Object.preventExtensions(employee);
+
+		// Now try to change the employee object property name
+		employee.name = "John"; // work fine 
+
+		//Now try to add some new property to the object
+		employee.age = 24; // fails silently unless it's inside the strict mode
+
+	2: Seal :
+
+    It is same as prevent extension, in addition to this also prevent existing properties and methods from being deleted.
+	To seal an object, we use Object.seal() method. you can check whether an object is sealed or not using Object.isSealed()
+	
+	
+	var employee = {
+		name: "RK"
+	};
+
+	// Seal the object 
+	Object.seal(employee);
+
+	console.log(Object.isExtensible(employee)); // false
+	console.log(Object.isSealed(employee)); // true
+
+	delete employee.name // fails silently unless it's in strict mode
+
+	// Trying to add new property will give an error
+	employee.age = 30; // fails silently unless in strict mode
+
+	when an object is sealed, its existing properties and methods can't be removed. Sealed object are also non-extensible.
+	
+	3: Freeze :
+	
+	
+
+    Same as seal, In addition to this prevent existing properties methods from being modified (All properties and methods are read only).
+
+	To freeze an object, use Object.freeze() method. We can also determine whether an object is frozen using Object.isFrozen();
+	
+45 . Write a function which will test string as a literal and as an object ?
+
+46 . What is typical use case for anonymous function in JavaScript ?
+
+	1.No name is needed if function is only used in one place, then there is no need to add a name to function.
+	
+	2.Anonymous functions are declared inline and inline functions have advantages in the case that they can access variable in the parent scopes.
+	
+	3.Passing anonymous function as a parameter to calling function.
+	
+	The best way to take decision for using anonymous function is to asked.
+
+		Will the function which I am going to define will use anywhere else.
+		
+	Advantage of using anonymous function:
+
+		1)It can reduce a bit of code, particularly in recursive function and in callback function.
+		2)Avoid needless global namespace pollutions.
+
+48. Write code for merge two JavaScript Object dynamically.
+
+	var person = {
+		name : 'John',
+		age  : 24
+	}
+
+	var address = {
+		addressLine1 : 'Some Location x',
+		addressLine2 : 'Some Location y',
+		city : 'NewYork'
+	}
+
+	Write merge function which will take two object and add all the own property of second object into first object.
+	
+		const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
+
+	Without using in-built function
+	
+		function merge(toObj, fromObj) {
+		  // Make sure both of the parameter is an object
+		  if (typeof toObj === 'object' && typeof fromObj === 'object') {
+			for (var pro in fromObj) {
+			  // Assign only own properties not inherited properties
+			  if (fromObj.hasOwnProperty(pro)) {
+				// Assign property and value
+				toObj[pro] = fromObj[pro];
+			  }
+			}
+		  }else{
+			throw "Merge function can apply only on object";
+		  }
+		}
+	
+49. What is non-enumerable property in JavaScript and how can create ?
+
+	To create a non-enumerable property we have to use Object.defineProperty(). This is a special method for creating non-enumerable property in JavaScript.
+	
+	Object.defineProperty(person, 'phoneNo',{
+		value : '8888888888',
+		enumerable: false
+	})
+	
+	Object.keys(person);
+	
+50. What is Function binding ?
+
+	Function binding falls in advance JavaScript category and this is very popular technique to use in conjunction with event handler and callback function to preserve code execution context while passing function as a parameter.
+	
+	var clickHandler = {
+		message: 'click event handler',
+		handleClick: function(event) {
+			console.log(this.message);
+		}
+	};
+
+	var btn = document.getElementById('myBtn');
+	// Add click event to btn
+	btn.addEventListener('click', clickHandler.handleClick);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

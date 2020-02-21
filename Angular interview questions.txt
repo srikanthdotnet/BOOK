@@ -1,0 +1,232 @@
+1. What’s new in Angular 5?
+
+    Angular 5 supports Typescript version 2.4
+
+    Angular 5 supports RxJS 5.5 which has new features like Pipeable Operators
+
+    A build tool to make the js bundles (files) lighter
+
+    Ahead of Time (AOT) is updated to be on by default
+
+    Events like ActivationStart and ActivationEnd are introduced in Router
+
+2. Name the building blocks of Angular.
+
+	The Angular application is made using the following: 
+
+	Modules
+
+	Component
+
+	Template
+
+	Directives
+
+	Data Binding
+
+	Services
+	
+	Pipes
+
+	Dependency Injection
+
+	Routing
+	
+	Guards
+3. What is Transpiling in Angular?
+
+	Transpiling is the process of converting the typescript into javascript (using Traceur, a JS compiler). Though typescript is used to write code in the Angular applications, the code is internally transpiled into javascript. 
+
+4. Which of the Angular life cycle component execution happens when a data-bound input value updates?
+
+	ngOnChanges is the life cycle hook that gets executed whenever a change happens to the data that was bound to an input. 
+
+5. Differentiate between Components and Directives in Angular 5.
+
+	Components break up the application into smaller parts; 
+	Directives add behavior to an existing DOM element. 
+
+6. What is the use of @Input and @Output? 
+
+	When it comes to the communication of Angular Components, which are in Parent-Child Relationship; we use @Input in Child Component when we are passing data from Parent to Child Component and @Output is used in Child Component to receive an event from Child to Parent Component. 
+	
+7. What is ng-content Directive? 
+
+	The HTML elements like p (paragraph) or h1 (heading) have some content between the tags. For example, <p>this is a paragraph</p> and <h1>this is a heading</h1>. Now, similar to this, what if we want to have some custom text or content between the angular tags like  <app-tax>some tax-related content</app-tax> This will not work the way it worked for HTML elements.  Now, in such cases, the <ng-content> tag directive is used. 
+
+8. What does a router.navigate do?
+
+	When we want to route to a component we use router.navigate.  
+	Syntax: this.router.navigate([‘/path’]); 
+
+9. What is ViewEncapsulation?
+
+	ViewEncapsulation decides whether the styles defined in a component can affect the entire application or not. There are three ways to do this in Angular: 
+
+	Emulated: styles from other HTML spread to the component.
+
+	Native: styles from other HTML do not spread to the component.
+
+	None: styles defined in a component are visible to all components.
+	
+10. What are Services in Angular and what command is used to create a service?
+
+	Services help us in not repeating the code. With the creation of services, we can use the same code from different components. 
+	
+	ng g service User
+	
+11. What is Dependency Injection?
+
+	When a component is dependent on service the dependency is injected/provided during runtime.
+	
+12. What is Routing in Angular 5?
+
+	Routing helps a user in navigating to different pages using links.
+	
+13. How to handle Events in Angular 5?
+
+	Any activity (button click, mouse click, mouse hover, mouse move, etc) of a user on a frontend/web screen is termed as an event. Such events are passed from the view (.HTML) page to a typescript component (.ts).
+	
+14. What is a RouterOutlet?
+
+	RouterOutlet is a substitution for templates rendering the components. In other words, it represents or renders the components on a template at a particular location.
+	
+15. Explain the usage of {{}}?
+
+	The set of brackets {{}} when used with an HTML tag, represent data from a component. For example, on a HTML page which has <h1>{{variableName}}</h1>, here the ‘variableName’ is actually typescript (component) data representing its value on the template; i.e., HTML. This entire concept is called String Interpolation. 
+
+
+16. In how many ways the Data Binding can be done?
+
+	Data Binding happens between the HTML (template) and typescript (component). Data binding can be done in 3 ways:
+
+	(i)  Property Binding 
+	(ii) Event Binding 
+	(iii) Two-Way Data Binding.
+	
+17. What is the sequence of Angular Lifecycle Hooks?
+
+	OnChanges()  -  OnInit()  -  DoCheck()  -  AfterContentInit()  -  AfterContentChecked()  -  AfterViewInit()  -  AfterViewChecked()  -  OnDestroy().
+	
+18. What is the purpose of using package.json in the angular project?
+
+	With the existence of package.json, it will be easy to manage the dependencies of the project. If we are using typescript in the angular project then we can mention the typescript package and version of typescript in package.json.
+	
+19. How is SPA (Single Page Application) technology different from the traditional web technology? 
+
+	In traditional web technology, the client requests for a web page (HTML/JSP/asp) and the server sends the resource (or HTML page), and the client again requests for another page and the server responds with another resource. The problem here is a lot of time is consumed in the requesting/responding or due to a lot of reloading. Whereas, in the SPA technology, we maintain only one page (index.HTML) even though the URL keeps on changing. 
+	
+20. What is Component in Angular Terminology? 
+
+	A web page in Angular has many components involved in it. A Component is basically a block in which the data can be displayed on HTML using some logic usually written in typescript. 
+	
+21. What are ngModel and how do we represent it? 
+
+	ngModel is a directive which can be applied on a text field. This a two-way data binding. ngModel is represented by [()] 
+	
+22. What does a Subscribe method do? 
+
+	It is a method which is subscribed to an observable. Whenever the subscribe method is called, an independent execution of the observable happens.  
+	
+23. Differentiate between Observables and Promises.
+
+	Observables are lazy, which means nothing happens until a subscription is made. Whereas Promises are eager; which means as soon as a promise is created, the execution takes place. Observable is a stream in which passing of zero or more events is possible and the callback is called for each event. Whereas, promise handles a single event.
+	
+24. What is an AsyncPipe in Angular? 
+
+	When an observable or promise returns something, we use a temporary property to hold the content. Later, we bind the same content to the template. With the usage of AsyncPipe, the promise or observable can be directly used in a template and a temporary property is not required. 
+	
+25. Explain Authentication and Authorization.
+
+	Authentication: The user login credentials are passed to an authenticate API (on the server). On the server side validation of the credentials happens and a JSON Web Token (JWT) is returned. JWT is a JSON object that has some information or attributes about the current user.  Once the JWT is given to the client, the client or the user will be identified with that JWT.
+
+	Authorization: After logging in successfully, the authenticated or genuine user does not have access to everything. The user is not authorized to access someone else’s data,  he/she is authorized to access some data.  
+	
+26. What is AOT Compilation?
+
+	Every angular application gets compiled internally. The angular compiler takes javascript code, compiles it and produces javascript code again. Ahead-of-Time Compilation does not happen every time or for every user, as is the case with Just-In-Time (JIT) Compilation. 
+	
+27. What is Redux? 
+
+	It is a library which helps us maintain the state of the application. Redux is not required in applications that are simple with the simple data flow, it is used in Single Page Applications that have complex data flow.
+	
+28. What are Pipes? 
+
+	This feature is used to change the output on the template; something like changing the string into uppercase and displaying it on the template. It can also change Date format accordingly.
+	
+29. Differentiate between ng-Class and ng-Style.
+
+	In ng-Class, loading of CSS class is possible; whereas, in ng-Style we can set the CSS style. 
+
+30. Why Typescript with Angular? 
+
+	Typescript is a superset of Javascript. Earlier, Javascript was the only client side language supported by all browsers. But, the problem with Javascript is, it is not a pure Object Oriented Programming Language. The code written in JS without following patterns like Prototype Pattern, becomes messy and finally leading to difficulties in maintainability and reusability. Instead of learning concepts (like patterns) to maintain code, programmers prefer to maintain the code in a OOP approach and is made avilable with a programming language like Typescript was thus developed by Microsoft in a way that it can work as Javascript and also offer what javascript cannot ie; 
+
+    pure OOPS as Typescript offers concepts like Generics, Interfaces and Types (a Static Typed Language) which makes it is easier to catch incorrect data types passing to variables.
+
+    TS provides flexibility to programmers experienced in java, .net as it offers encapsulation through classes and interfaces.
+
+    JS version ES5 offers features like Constructor Function, Dynamic Types, Prototypes. The next version of Javascript ie ES6 introduced new feature like Class keyword but not supported by many browsers.
+
+    TS offers Arrow Functions (=>) which is an ES6 feature not supported by many browsers directly but when used in TS, gets compiled into JS ES5 and runs in any browser.
+
+    TS is not the only alternative to JS, we have CoffeScript, Dart(Google).
+
+    Finally, it is like, TS makes life easier when compared to JS.
+A Promise handles a single event when an async operation completes or fails.
+
+Note: There are Promise libraries out there that support cancellation, but ES6 Promise doesn't so far.
+
+Observable
+
+An Observable is like a Stream (in many languages) and allows to pass zero or more events where the callback is called for each event.
+
+Often Observable is preferred over Promise because it provides the features of Promise and more. With Observable it doesn't matter if you want to handle 0, 1, or multiple events. You can utilize the same API in each case.
+
+Observable also has the advantage over Promise to be cancelable. If the result of an HTTP request to a server or some other expensive async operation isn't needed anymore, the Subscription of an Observable allows to cancel the subscription, while a Promise will eventually call the success or failed callback even when you don't need the notification or the result it provides anymore.
+
+Observable provides operators like map, forEach, reduce, ... similar to an array
+
+There are also powerful operators like retry(), or replay(), ... that are often quite handy.
+
+----------------------
+
+to convert observable into promise we use toPromise 
+
+
+ return this.hc.get("http://localhost:8080/getStudents").toPromise();
+ 
+ 
+ 
+ this.ss.getAllStudents().then((data)=>{
+            this.students = <Student[]>data;
+        })
+
+
+view child -- content child
+
+view child represents the tag or elements created in the component template
+
+content child represents the tag or elements injected by parent component using content projection
+
+@ViewChild(h1) document.getElementsbyTagName("h1")[0]
+
+@ViewChildren(h1)document.getElementsbyTagName("h1")
+
+@ContentChild(h1)
+
+@ContentChildren(h1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

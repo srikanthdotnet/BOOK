@@ -1,0 +1,1530 @@
+ UI 				Server Programs			JAVA .net python nodejs
+ 
+ HTML
+ CSS
+ JS
+ 
+ bootstrap
+ A8		reactive			vue
+ 
+ 
+ Angular Features
+ ---------------------------
+ 
+ performance : -
+		angular provides good performance improvement algorithms in the latest design ( angular 2).
+		
+		it improves the performance by decreasing the page loading time.
+		
+		only used features will be loaded by runtime.
+ 
+SPA : -
+	spa means single page application.
+	
+	in normal web page development we need to provide all areas of the web page.
+	
+	like 
+			header
+			menu
+			body content 
+			footer
+			
+	but in angular we only provide body content in our web pages, one single page contains all the common areas.
+	
+Services Or DI : -
+-----------------------
+	DI promotes write once use multiple times pattern.
+	
+	DI means providing dependency logic to the dependent.
+	
+	Angular provides DI logic. we will use this logic to create applications.
+	
+	
+Forms : -
+----------
+		angular simplifies forms logic.
+		
+		means accessing, validating and sending data from cp to sp.
+		
+		basic validations are available in angular.
+		
+		we can write our own validations also.
+		
+		all the form data is available as a single object.
+		
+		what is debounce ?
+		
+		it is the special form property used to tell how long angular framework need to wait to update the data.
+		
+Testing : -
+------------
+angular simplifies testing also. like 
+
+		configuration for the jasmine framework is predefined. based on our 
+		
+		need we can change that.
+		
+		
+
+
+
+---------------------------------------------------------------------------------
+TS
+----
+TS is not a new language. it is the enhancement  of js language.
+
+it has the following features
+
+1)		strict type checking is available
+
+		 var 		i 	= 		100;
+        console.log(typeof 		i);				// number
+        i = "abc";        
+        console.log(typeof 		i);				// string
+		
+		the above program is not valid in any other programming languages . even in typescript also.
+		
+		once a variable is defined data type should be fixed.
+		
+2)		typescript have compiler to identify program syntax errors and some logical errors also.
+
+3)		oop is very flexible in ts language.
+
+		writing a class in ts is very easy.
+		
+		in js we use function to create a class. it is confusing of  the js programmers for years.
+		
+		TS
+		----
+		class A{
+		}
+		JS
+		---
+		var A = /** @class */ (function () {
+			function A() {
+			}
+			return A;
+		}());
+
+var or let 
+
+but let is the recommended way.
+
+because by using let we can create global local and block variables.
+
+const 
+--------
+		variable values can not be modified will be declared as constants.
+		
+		const     vn = value;
+		
+		like application name, version, data base urls, port nos, external api urls.
+		
+		const  db_url = "mongodb://localhost:27017";
+		
+		const   student  =  {   "id" : 1 , "name" : "s1" }
+		
+		student.name = "rk" ; 
+		
+		in the above code block we are not assigning new object.
+		
+		but we are modifying the existing object. it is possible.
+		
+		to over come this problem we use object.freeze method.
+---------------------------------------------------------------------------------------------------		
+1)			install nodejs software 
+
+			https://nodejs.org/en/download/
+	
+2)			install typescript 
+
+				a )		open command prompt
+				
+				b)			execute below command 
+				
+							npm			install		-g			typescript
+							
+3)			download visual studio code editor
+
+			https://code.visualstudio.com/Download
+			
+			use system installer
+Data types available in the type script
+-----------------------------------------------------------		
+			
+number 
+	it is used to represent integers and float values.
+	
+	var    index:number 
+	
+string 
+
+	a single or collection of characters are called as string.
+	
+	to create string we can use single and double quotes.
+	
+	let  		message:string ;
+	
+	message = "hello" ;
+	message = 'hello' ;
+
+	the above two statements.
+
+boolean 
+	it used to represent true and false values.
+	
+	var 		result:boolean;
+	
+	the above 3 datatypes are called as primitive data types.
+	
+	because we can manage only one value using the variable.
+	
+	but we have other datatypes to manage multi values using a single variable. these kind of datatypes are called as reference datatypes.
+	
+Reference datatypes are array and object.
+
+Array : -
+--------
+	array is used to represent collection of values.
+	
+	js/ts arrays are different from other programming languages.
+	
+	1)	we can have other types of values
+	
+	2)we can increase or decrease size of the array by using array methods.
+	
+Object : -
+-----------
+
+json is used to represent data in client programs.
+
+it is a collection of key and value pairs.
+
+keys are always in string format.
+
+value can be any data type.
+
+Accessing object values 
+---------------------------------------
+	we can access object values in two ways.
+	
+	1)		dot notation 
+	
+	2)		array notation
+	
+			student1.id 
+			
+			student1["id"]
+			
+var student1 =  { 
+                    "id" : 1 , 
+                    "name": "s1",
+                    "courses": ["H5","C3","JS6","A8","B4"],
+                    "address":{
+                        "city":"hyd",
+                        "country":"INDIA",
+                        "geo":{
+                            "lat":"79",
+                            "lang":"90"
+                        }
+                    }
+                };			
+			
+
+creating the objects
+--------------------------------
+1)		using direct assignment 
+
+		var 	student1  =  {   } ;
+		
+2)		using 	constructor function  ( JS 5 )
+
+		function    Student(){
+		
+		
+		}		
+		
+		to create the object we use new operator .
+		
+		var 		student1 =		new 		Student();
+		
+3)		using class keyword (JS6 or TS)
+
+		class 		Student{
+		
+		}
+		
+		var  	student1 =  	new 		Student();
+		
+4)		using 	Object class Create method
+
+		var 	student1 = Object.create({});
+		
+		
+
+what is class 
+
+	class is used to represent data and logic as a single unit.
+	
+	class represents encapsulation.
+	
+inheritance 
+	inheritance means reusability. all the parent class logic and data is available for child class.
+	
+polymorphism
+	polymorphism means one functionality with different implementations
+	
+abstraction
+	designing a method for child class implementation is called as abstraction.
+	
+	abstract 		class 			Validator {
+			abstract 		validate();	
+	}	
+	class 	RequiredValidator 		extends 		Validator{
+			validate(){
+				// logic
+			}
+	}
+	class 	MinlengthValidator 		extends 		Validator{
+			validate(){
+				// logic
+			}
+	}
+			
+Basic Typescript programming 
+-------------------------------------------------
+	1)		create typescript file 
+	
+	2)		inside typescript file create a class and corresponding logic
+	
+	3)		compile and run the file.
+	
+	what is constructor?
+	
+	constructor is used to initialize class properties at the time of object creation.
+	
+	it will be called only one time for object.
+	
+creating and calling the methods
+-----------------------------------------------------
+class A{
+    m1(){
+        console.log("i am in m1");
+    }    
+    m2(){
+        console.log("i am in m2");
+    }
+}
+let a1 = new A();
+a1.m1();
+a1.m2();
+
+static method
+----------------------
+		with out creating the object some times we need to call the method. in this scenario design the method as static.
+		
+		Static methods can be called by using class name.
+		
+		in any class if we dont have any properties design all the methods as static.
+		
+---------------------------------------------------------------------------------------------------------------
+Angular Programming blocks
+----------------------------------------------
+
+template
+		it used to create ui for our application.
+		
+		we write html logic and angular expression logic in templates.
+		
+component 
+		it used to manage template by providing data and event management functionalities.
+		
+		we write a class with @component decorator 
+		
+Service 
+		it used to provide communication logic and data sharing logic for components
+		
+		we write a class with @Injectable decorator
+		
+Pipes
+		it used to provide data conversion from one format to another format for display purpose.
+		
+		we write a class with @Pipe decorator
+		
+directives
+		it used to provide project related validation logic and common logic for ui or templates.
+		
+		we write a class with @Directive decorator
+		
+Guards
+		it used to provide security logic for the client programming.
+		
+		we write a class with @Injectable decorator
+
+Module 
+		module acts as a container for angular programming blocks.
+		
+		every project should have at least one main module and many sub modules.
+		
+		we write a class with @NgModule decorator
+		
+Angular CLI 
+------------------
+1)		 install nodejs software 
+
+		www.nodejs.org/en/download/
+		
+2)		install cli 
+
+			a. open command prompt 
+			b. execute the below command 
+			
+					npm 			install 			-g 			@angular/cli
+					
+angular cli commands
+------------------------------------
+1)		creating the project 
+
+			ng 		new 			projectname
+			
+			ex:-		ng 		new 		ex1
+			
+2)		executing the project 
+
+			ng 		serve
+			
+			a. 	it compiles all ts code into js code.
+			b. 	place all the js code into internal web server
+			c.		start the webserver on 4200 port.
+
+3) building the project 
+
+			ng 		build 
+			
+			a.		it compiles all ts code into js code 
+			
+			b.		place all the files into dist folder
+			
+4)		generating project programming blocks
+				
+		ng		g			blockname		name 
+		
+		ex 
+		
+			ng 		g 		component 		login
+								service
+								pipe
+								directive
+								guard
+								module
+5)		changing the port no 
+
+		ng 		serve		--port=8080
+
+
+6)		add or update new modules or packages
+
+		ng 		add/update			packagename
+
+7)		how to start angular server in https
+			
+		ng 		serve 		--ssl=true
+		
+https://bit.ly/34kSx4l
+-----------------------------------------------------------------------------------
+Angular project files 
+-------------------------------
+1)		src  
+				it contains application related files and bootstrapping files also ( main.ts and index.html )
+				
+2)		node_modules 
+				project related libraries files will be placed in this folder by npm tool.
+				
+				npm means node package manager.
+				
+3)		e2e
+				e2e means end to end testing.
+				as a angular developer we write dev testcases using jasmine framework for ui testing.
+				
+				this framework configuration is available in e2e folder.
+				
+4)		package.json 
+				it contains project information and libraries version information.
+				
+5)		angular.json 
+				it contains our angular configuration information.
+				
+				we modify this file to include external css or js framework 
+				files.
+				
+6)		src/app
+			this our application source code folder. 
+			we need to place ts html and css files in this folder.
+			
+7)		src/assets
+			this is our application resources folder.
+			means images external css and js files.
+					
+8)		src/environments 
+			in this folder we provide configuration details about environment.
+			
+			like data base ip address or rest api urls or port no etc.
+			
+9)		index.html 
+			this our main web page for angular project.
+			
+			at execution time angular place or merge dynamic html into this file.
+			
+10)	main.ts
+			angular flow starts from main.ts file and it contains angular project bootstrapping logic.
+			
+			bootstrapping means start or initialization logic.
+			
+11)	polyfills.ts
+
+			to support ie9 , ie10,ie11 browsers angular framework provided polyfills.ts .
+			
+12)	tsconfig.json 
+			this files contains typescript compiler configurations.
+			
+--------------------------------------------------------------------------------------------------------
+angular project example
+----------------------------------------
+1)  create a module 
+
+			app.module.ts 
+
+2)		create 	a component 
+
+			app.component.ts
+			
+3)		create a template
+
+			app.component.html
+			
+creating a module
+------------------------------
+
+1)		create a class and provide @NgModule decorator
+
+2)		provide configuration details 
+
+		declarations 
+				in this place we provide class names of components pipes directives
+		providers
+				in this place we provide class names of services and guards
+		imports
+				in this place we provide class names of submodules and dependent module names
+		bootstrap
+				in this place we provide welcome component name or root component name
+		exports 
+				in this place we provide component names we want to give to other modules 
+				
+creating a component 
+------------------------------------
+1)		create a class and provide @Component 
+
+2)		provide the configuration information 
+
+		selector : tag name for the component to be used in the html(index.html)
+		
+		templateUrl : filename of the template
+		
+		template: internal html as string format
+		
+		styleUrls : css files for the current component 
+		
+		animations : animation configuration information
+		
+Data Binding 
+---------------------
+	associating component properties with the ui is called as data binding
+	
+	it is of two types 
+	
+	1)		 1 way data binding (accessing)
+	
+	2)		2 way data binding 	 ( accessing and updating )
+	
+	
+1 way data binding
+-------------------------------
+		it is used to access component properties inside the html(UI).
+		
+		C --------------> T
+		
+		id 				{{ id }}
+		
+		expressions 
+		-------------------
+			it is used to access data from component and display inside the html tags.
+				
+				syntax : -
+					
+					we use the following syntax  {{    }} 
+		
+					we can also call it as interpolation.
+					
+		example 
+		--------------
+		1)		create module component and template 
+		
+		2)		create a property and initialize the property in the component class
+		
+		3)		access the property inside the html using expressions
+		
+		Attribute Binding
+		---------------------------
+			associating component properties with html element attributes is called as attribute binding.
+			
+			syntax for this is  [   ]
+
+
+			<input 		type="text" 		name="price" 		[value]="price">
+			
+			export 		class 		AppComponent{
+					
+					price : number = 100;
+				
+			}
+
+		property binding 
+		---------------------------
+			associating parent component properties with child properties is called as property binding 
+			
+		css style and class binding
+		--------------------------------------------
+			associating component properties with css styles and classes is called as css style and class binding
+			
+			
+ngFor
+---------
+
+is used to simplify iteration.
+
+syntax
+
+		<tag 		*ngFor="let    vn 		of 		collection">
+		
+				{{ vn }}
+		
+		</tag>
+
+Accessing Object arrays or JSON arrays
+----------------------------------------------------------------
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    <tr *ngFor="let s of students">
+        <td>{{		s.id		}}</td>
+        <td>{{		s["name"]		}}</td>
+    </tr>
+</table>
+
+    students =  [ 
+		{ "id":1 , "name":"s1" },
+        { "id":2 , "name":"s2" },
+        { "id":3 , "name":"s3" }
+    ];
+
+---- dynamic options
+		
+use option tag with ngFor.
+
+Event Binding
+-----------------------
+Associating component functions with user interactions(events) is called as event binding.
+
+<button 			(click)		=	" m1(); " > Login </button>
+
+    m1(){
+        this.names = ["s4","s5","s6"];
+    }
+
+----------------------------------------------------------------------------------------------
+Forms 
+----------
+	Forms are used accept user input in the html language.
+	
+	To access the user input we need to write some js logic.
+	
+	once we access the user input we need to verify user input according client data requirements.
+	
+	in angular framework we dont write the logic, we use the logic provided
+	by framework.
+	
+	For this purpose we have two classes.
+	
+	FormGroup		--			it represents form tag at runtime
+	
+	FormControl	--			it represents input tag select tag and textarea with 
+										ngModel attribute
+										
+										
+	we need to import FormsModule in our module imports sections.
+	
+	import 		{ FormsModule } 		from 	"@angular/forms";
+--------------------------------------------	
+	<form>
+		Id <input type="text" name="id" 	[(ngModel)]	="	sid"><br>
+		<button (click)="save();">Save</button>
+	</form>
+	
+	LoginForm
+	
+	Our Server Program always expect the data in object format.
+	
+	so we need to send as json.
+	
+Validation 
+----------------
+validation means verifying user input is called as validation
+
+in validation two stages are there.
+
+1)		format of the data 
+
+2)		correctness of the data	
+	
+data format rules we verify at the client side.
+
+1)		email 
+
+2)		phoneNo
+
+3)		minlength
+
+4)		maxlength
+
+5)		min and max values
+
+6)		password validation rules
+
+7)		required data 	
+	
+	
+how to perform angular validation 
+-----------------------------------------------------
+
+	angular provided some special attributes for validation purpose.
+	
+	1)		required
+	
+	2)		minlength
+	
+	3)		maxlength
+	
+	4)		pattern
+	
+	5)		email
+	
+	1)		for the form tag configure template reference variables to access formgroup.
+	
+	2)		novalidate attribute also ( to suppress html validations ) 		
+	
+	<form 		novalidate 		#studentForm="ngForm">
+			..............................
+	</form>
+
+Field configuration
+-----------------------------
+
+		1)		every input select textarea should have ngModel attribute
+		
+		2)		configure template reference variable to access formControl object 
+		
+		3)		provide validation attributes.
+
+<input 	type="text"  name="id"	 [(ngModel)]="id" 
+
+				#idCtrl="ngModel"		required 		minlength="5" >
+
+configuring error messages
+-------------------------------------------
+
+to configure error messages we need to use formControl object.
+
+
+<span *ngIf="idCtrl.invalid">
+message 
+</span>
+
+every form group and formcontrol object have 6 states associated with it.
+
+touched - it becomes true when user accessed the field
+
+untouched - it is true when user doesnt accessed the field
+
+pristine -- it is true when user doesnt modified the value 
+
+dirty	--	it is true when user modified the value
+
+valid -- it is true when user input pass all validations 
+
+invalid  -- it is true when user input failed atleast one validation
+
+    <span 		*ngIf="	idCtrl.touched	&&	idCtrl.invalid">
+        please provide id value
+    </span>
+
+invalid provides less information about validation result. 
+
+but errors property provides detail information about validation result.
+
+it have all the validation attributes .
+
+required 
+minlength
+maxlength
+pattern
+email
+
+by default all are false. based on validation they become true.
+
+        <span 		*ngIf="idCtrl.errors.required">
+					please provide id value
+        </span>
+
+pattern validation 
+-----------------------------
+	this validation verifies the data we enter into the input field.
+means the type of characters we are entering.
+
+[a-z]		--		lowercase
+
+[A-Z]		--		uppercase
+
+[A-Za-z]		--		lowercase and uppercase
+
+[A-Za-z0-9]		--	lowercase and uppercase and numbers
+
+{ m  }		exactly m no of values 
+
+{ m,n }		min m and max n characters
+
+{ m , }		min m and max no limit
+
+		pattern="	^[a-z0-9]{4,}$" 
+
+
+we can create our own validations using directives.
+
+
+Pipes 
+---------
+	pipes are used to convert the data from one format to another format.
+	
+	Angular framework provides some default pipes.
+	
+	for   string , number , date , object formatting purpose and slice for array purpose.
+	
+String pipes
+-------------------
+		uppercase
+		lowercase
+		titlecase
+		
+		string data can be converted into the any of the above formats.
+		
+		
+Number Pipes
+----------------------
+	Currency
+		 it is used to convert number data into currency format.
+		 
+		 means display currency symbol along with number data.
+		 
+		 default currency symbol is us dollar. but we can customize by providing currency code as pipe parameter.
+		 
+		 INR 
+		 EUR
+		 GBP  		are other currency codes.
+		 
+		 
+			{{		price 		|			currency		:    "INR"  }}
+			
+	number 
+			to format number data we use number pipe.
+			
+			to format the number data we need to provide the following information.
+			
+			a.b-c format.
+			
+			a means no of digits need to be display before decimal point.
+			
+			b means min no of digits need to be display after decimal point.
+			
+			c means max no of digits need to be display after decimal point.
+			
+			absence of digits are replaced by zeros.
+			
+			
+	percent 
+			percent pipe is a combination of number and percent calculation.
+			
+			percent = number + %;
+			
+Date formatting
+-------------------------
+
+to display the according to the user requirement we use date pipe.
+
+we need to provide date pattern or format.
+
+JSON
+--------
+	to convert json object into string format purpose, we use json pipe.
+	
+	
+Slice 
+-------
+	to access a part of array we use slice pipe.
+	
+	it accepts start and end index values.
+	
+	<tr 		*ngFor="let 	s 		of 	students	|	slice		:	5	:	9	">
+        <td>{{s.id}}</td>
+        <td>{{s.name}}</td>
+    </tr>
+	
+creating user defined pipe or custom pipe
+-----------------------------------------------------------------------
+1)		create a class and provide @Pipe decorator
+
+2)		provide transform method inside the class 
+
+3)		it will accept value and pipe parameters as arguments
+
+4)		register the pipe class in the module declarations
+
+
+------------------------------------------- 
+install the following extensions in vs code editor
+
+	1)		angular 	v8 	snippets
+	
+						john papa
+						
+	2)		bootstrap 4 	
+
+			ashok koyi
+			
+	3)		auto import 
+	
+import 		{ Pipe, PipeTransform } 	from '@angular/core';
+@Pipe({
+    name: 'reverse'
+})
+export class ReversePipe implements PipeTransform {
+    transform(value: string){
+        var data = "";
+        for(let i=value.length-1;i>=0;i--){
+            data = data + value[i];
+        }
+        return data;
+    }
+}
+----------------------------------------------------------------------------------
+Services
+-------------
+to simplify communication between cp to sp.
+
+it provides 4 different methods
+
+get				--				accessing the data
+
+post				--				inserting the data
+
+put				--				updating the data 
+
+delete			--				deleting the data
+
+
+Get : -
+------
+		get method is used to call rest apis to access the data base data.
+		
+		httpClient.get( url ) .subscribe( s1, f1);
+		
+		url		represents 		server program address
+		s1 		represents 		success function 
+		f1 		represents 		failure/error function 
+		
+		HttpClient is a framework provided service , for this service we should not create the objects. framework provide the object as a constructor argument .
+		
+		constructor( private 	hc:HttpClient) {
+		
+		}
+		
+import http client class  in the component 
+--------------------------------------------------------------------
+import 		{HttpClient} 		from 		"@angular/common/http";		
+		
+import 	HttpClientModule in the module 
+----------------------------------------------------------------
+import 		{HttpClientModule} 		from 		"@angular/common/http";			
+
+
+@NgModule({
+imports : [........., HttpClientModule ]
+})
+
+
+Post 
+-------
+
+post is used to send the data to the server program for inserting.
+
+it accepts two parameters url and data .
+
+syntax
+
+			this.hc.post( url , data ) .subscribe (  s1 , f1 ) ;
+			
+			url		--			address of the server program
+			
+			data		--			data to be insert to the database
+			
+			s1 		-- 			success function 
+			
+			f1 		-- 			failure function 
+			
+			files need to be create
+			
+			1)		app.module.ts
+			
+			2)		app.component.ts
+			
+			3)		app.component.html
+			
+			4)		student.ts
+			
+			
+Put method 
+-------------------
+
+		this.hc.put( url , data ) .subscribe ( s1 , f1 ) ;
+		
+		
+delete method 
+------------------------
+	delete is used to delete the data 
+	
+		this.hc.delete( url + id  ).subscribe ( s1 , f1 ) ;
+
+		
+SPA Configuration
+----------------------------
+
+1)		create container in app.component.html
+
+2)		configure routing rules 
+		every rule is a combination of path and component.
+		
+3)		configure these rules as module in our app module 
+
+4)		create the menu 
+
+
+1)		<router-outlet></router-outlet> 
+
+2)		var appRules = [
+    { path: "home" , component:HomeComponent}
+	.........
+]
+
+3)		RouterModule.forRoot(appRules)
+
+4)		<a 	routerLink="/home">Home</a>
+
+what is routerLink ?
+routerLink is a angular provided attribute directive  to provide information about the path in the html.
+
+So that angular will replace dynamic content at runtime.
+
+href 		refresh 	entire web page.
+
+routerLink refresh only container area.
+
+Creating Child modules
+--------------------------------------
+1)		create a class and provide @NgModule decorator
+
+2)		import commonmodule in the imports sections
+
+3)		register module class in the main module imports area.
+
+-------------------------- student.module.ts ------------------------------------------
+import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+
+@NgModule({
+    imports: [CommonModule]
+})
+export class StudentModule { }
+
+-----------------------------------app.module.ts-----------------------------
+
+import 		{ StudentModule }	from 	'./student/student.module';
+
+@NgModule({
+    imports: [StudentModule,RouterModule.forRoot(appRules),RouterModule],
+    ......................................,
+})
+export class AppModule { }			
+
+--- adding child module routes ----------------------
+1)		create component and html for the task
+
+		student-list.component.ts
+		student-list.component.html 
+		
+2)		register the component in the student module declarations section 
+
+ declarations:[StudentListComponent]
+
+3)		configure child module rules 
+		const studentRules = [
+					{	
+						path:"studentList",
+						component:StudentListComponent
+					}
+			]
+4)		provide these rules to the student Module imports section 
+RouterModule.forChild(studentRules)
+
+5)		create a menu link for the student list 
+		<a 		routerLink = "/studentList">List</a>
+
+
+modules 
+-------------
+1)		to organize the code in better way, we create separate modules 
+	
+			--		easy defect identification 
+			--		maintenance
+			--		adding new feature is easy
+			
+2)		for parallel development to develop the app in less time .
+
+3)		performance -- for lazy module loading conf we need child modules 
+
+4)		reusability of one project code in another
+
+------------------------------------------------------------------------------
+creating user defined service
+------------------------------------------------
+1)		create a class and provide @Injectable decorator
+
+2)		register the service class name in module providers section 
+
+3)		access the service object as a constructor argument in the component 
+
+
+@Injectable()
+export class StudentService {
+    constructor(private hc:HttpClient){
+    }
+    getAllStudents(){
+        return this.hc.get("url");
+    }
+}
+	
+	student-insert.component.ts
+	student-insert.component.html 
+			form
+	
+
+Security configuration in angular projects
+-----------------------------------------------------------------
+1)		create a registration page and save user details into the users table.
+
+2)		create a login page and send username and password 
+
+3)		server program verify the username and password, provide unique id value to the client program 
+
+4)		client program should present this id value to the server program for the next requests.
+
+5)		if the id value is not present in any request from cp to sp, it will be treated as invalid request and we need to display login page.
+
+
+what is local storage ?
+
+local storage is browser memory to store the data . 
+
+it have 4 methods. it manages the data as a key and value pairs.
+
+1)		setItem		key 		value 
+
+2)		getItem		key
+
+3)		removeItem 	key
+
+4)		clear 
+
+        let httpHeaders = new 	HttpHeaders({
+            'access-token' : localStorage.getItem("id")
+      });    		  
+        let options = {  "headers" : httpHeaders     }; 
+
+			this.hc.get("url",options);
+			
+	we modified login component and student service
+
+
+Interceptor provides common logic for request in angular applications.
+
+some times we need add token to the request headers to access secure REST API.
+
+REST API means programs which accept and give the data in JSON format.
+
+	1)		create a file token.interceptor.ts
+	
+	2)		generate the common code 
+	
+			using   a-http-interceptor-headers
+			
+	3)		add the following header to the request object in the interceptor
+	
+		const 	headers = req.headers
+            .set('access-token', localStorage.getItem("id"));
+        const 	authReq = req.clone({ headers });
+
+	4)		register the interceptor with module.
+	
+			 providers:[	{
+				provide: HTTP_INTERCEPTORS,
+				useClass: TokenInterceptor,
+				multi: true
+			  }	]
+
+Guards 
+------------
+
+	guards are used to provide security for client logic in angular application.
+	
+	it returns boolean value.
+	
+	true 		means 		access
+	
+	false 	means 		reject
+	
+	creating can Activate guard
+	
+	1)		create a class and provide @Injectable decorator
+	
+	2)		in the class provide canActivate method and implements CanActivate interface
+	
+	3)		in the method verify security information 
+	
+@Injectable()
+export class SecurityGuard implements CanActivate {
+    canActivate() {
+        let 	data = localStorage.getItem("id");
+        if(data!=null)
+            return true;
+        else
+            return false;
+    }
+}
+
+4)		register the class in the main module providers section 
+
+5)		configure this guard for important routes only.
+
+{
+		path:"studentList",
+		component:StudentListComponent,
+		canActivate	:	[SecurityGuard]
+}
+
+------------------------------------------------------------------------------------------------------
+integrating with bootstrap.css
+------------------------------------------------
+
+1)		get  bootstrap distribution 
+	
+				getbootstrap.com -->  download  button  -->
+				
+				compiled css and js  -->  download button  -->  download the zip file.
+				
+2)		place all the css files and js files in the project assets folder
+
+3)		load these files in the index.html 
+
+4)		load the css files using link tag in the index.html 
+
+5)		load the js files using script tag in the index.html 
+
+			first load 	jquery file ,then popper.js , then bootstrap.js
+			
+			
+Tostr angular grid and charts
+-----------------------------------------------
+to integrate with any 3rd party module use the following process
+
+	1)		download the module 
+	
+	2)		import the module 
+	
+	3)		use the services or logic
+	
+toastr 
+---------
+
+use ngx-toastr module or package
+
+how to create success message
+
+		this.ts.success("","");
+		alert("","");
+		
+		constructor(private ts:ToastrService){
+		
+		}
+		
+		
+NODEJS  Express Mongodb
+------------------------------------------
+
+REST API means programs accept and give the data in json format.
+
+TO Develop REST API
+
+	1)		we use js as a development language
+	
+	2)		these programs will be executed by nodejs software
+	
+	3)		to simplify the program development we use express framework.
+	
+create a simple program in express framework
+-------------------------------------------------------------------------
+
+1)		download express framework libraries/packages
+
+2)		load the express libraries/packages into the program 
+
+3)		use the framework methods in the program 
+
+----------------
+programming
+---------------------
+1)		create a separate folder ex1 
+
+2)		open the command prompt in the folder 
+
+3)		execute 	npm		init 		command 
+
+			give the information about u r project --> enter
+			
+4)		execute npm 		install		express 		--save 		command 
+
+
+Mongodb : -
+---------------
+we have collections . it is similar to tables in the oracle or sqlserver.
+
+every collection is used to store data in the json format. these are called as documents.
+
+bodyparser	library
+------------------------------
+bodyparser library converts request data into json format.
+
+this data available as a body property in request object.
+
+we cannot share information between two servers running on diff port no.
+
+we need to enable cors at server program.
+
+cors means cross origin resource sharing.
+
+update and delete the data from mongodb
+-----------------------------------------------------------------------
+update and delete take where conditions to identify the data.
+
+db.collection("students").
+
+update(	{	"id"	:	req.body.id}	,	{	$set	:	req.body	},f1)
+
+db.collection("students").
+
+remove(	{	"id"	:	req.body.id}	 )
+
+path parameters 
+---------------------------
+	sometimes we need to send the data as part of the url.
+in this scenario we should configure path parameters.
+
+app.delete("/deleteStudent/:sid",function(req,resp){
+
+} );
+
+to access path parameters in expressjs program we use 
+
+req.params.parameterName
+
+
+	
+    db.collection("students").insert(req.body,function(err,results){
+        if(err){
+            console.log(err);
+            return;
+        }
+        else{
+            resp.send({"msg":"insert success"});
+        } 
+    })
+
+
+@Injectable()
+export class StudentService {
+    constructor(private httpClient: HttpClient) { }
+    insert(data){
+        return this.httpClient.post("/insertStudent",data);
+    }
+    update(data){
+        return this.httpClient.put("/updateStudent/"+data["id"],data);
+    }
+    delete(data){
+        return this.httpClient.delete("/deleteStudent/"+data["id"]);
+    }
+    getAllStudents(){
+        return this.httpClient.get("/getAllStudents");
+    }
+    getStudentById(data){
+        return this.httpClient.get("/getStudentById/"+data["id"]);
+    }
+}
+
+
+Auto populating the form data in update
+------------------------------------------------------------------------
+
+1)		send id value to the server program 
+
+2)		get the data from the server program 
+
+3)		assign the data to the model object
+
+------------------------------------------------
+to share the data between components we have the following scenarios
+
+1) parent to child ( @Input )
+
+2)	child to parent ( @Output )
+
+3)	viewchild and viewchildren 
+
+4)	using common service between two individual components
+
+@input 
+-----------
+
+1)		in the parent component define i property 
+
+2)		in the child component define j property
+		
+3)		provide @Input decorator for the j property
+
+4)		use property binding in the parent template 
+
+<c2 		[j]="i"  		[parentData]="s1"></c2>
+
+export 		class 		Component2{
+    @Input()
+    j:number;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			
+
+
+
+
+
+
+
+					
+		
+		
+		
+		
+		
+		
+		
+		
+	
+
+		
+		
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+
+
+
+
+
+
+
+	
+	
+	
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
